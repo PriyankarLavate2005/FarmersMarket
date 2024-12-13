@@ -6,6 +6,7 @@ import Contact from '../pages/Contact';
 import Login from '../pages/Login.js'
 import SignUp from '../pages/Signup.js';
 import Navbar from '../components/Navbar';
+import CropInfo from '../CropInfo/CropInfo.js';
 
 const AppRoutes = () => {
   return (
@@ -17,6 +18,7 @@ const AppRoutes = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/Login" element={<Login/>} />
+        <Route path='/cropInfo' element={<CropInfo />}/>
       </Routes>
     </Router>
   );
