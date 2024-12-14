@@ -23,12 +23,8 @@ const farmerSchema = new mongoose.Schema({
   name: String,
   email: String,
   phone: String,
-  address: String,
   city: String,
-  state: String,
   zip: String,
-  farmName: String,
-  products: String,
   password: String
 });
 
