@@ -1,101 +1,59 @@
 import React, { useState } from 'react';
 import './Signup.css';
-
-const Signup = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    city: '',
-    zip: '',
-    password: ''
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch('http://localhost:5000/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      });
-      const result = await response.json();
-      alert(result);
-    } catch (error) {
-      console.error('Error:', error);
-      alert('An error occurred.');
+import axios from 'axios'
+function SignUp(){
+  const [name,setname]=useState('')
+  const [email,setemail]=useState('')
+  const [password,setpassword]=useState('')
+  const [phone,setphone]=useState('')
+  const [zip,setzip]=useState('')
+ async function Submitform(e){
+  e.preventDefault()
+  try{
+    await axios.post("http://localhost:8000/signup",{
+      email,password,name,phone,zip
+  }).then(res=>{
+    if (res.data=='ok'){
+      alert("account created sucessfully ")
     }
-  };
-
+    else{
+      alert("something went wrong")
+    }
+  })
+  }
+  catch(e){
+    console.log(e)
+  }
+ }
   return (
     <div className="signup-container">
-      <h2>Signup Form</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name:</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor="phone">Phone:</label>
-        <input
-          type="tel"
-          id="phone"
-          name="phone"
-          value={formData.phone}
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor="city">City:</label>
-        <input
-          type="text"
-          id="city"
-          name="city"
-          value={formData.city}
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor="zip">Zip Code:</label>
-        <input
-          type="text"
-          id="zip"
-          name="zip"
-          value={formData.zip}
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-        <button type="submit">Signup</button>
+      <h1>Create an Account</h1>
+      <form method='POST'>
+        <div className="form-group">
+          <label>Name</label>
+          <input type="text" name="name"  onChange={(e)=>{setname(e.target.value)}} required />
+        </div>
+        <div className="form-group">
+          <label>Email</label>
+          <input type="email" name="email" onChange={(e)=>{setemail(e.target.value)}}   required />
+        </div>
+        <div className="form-group">
+          <label>Phone</label>
+          <input type="text" name="phone" onChange={(e)=>{setphone(e.target.value)}}  required />
+        </div>
+        <div className="form-group">
+          <label>ZIP Code</label>
+          <input type="text" name="zip" onChange={(e)=>{setzip(e.target.value)}}  required />
+        </div>
+        <div className="form-group">
+          <label>Password</label>
+          <input type="password" name="password"  onChange={(e)=>{setpassword(e.target.value)}} required />
+        </div>
+         <button className="signup-button" onClick={Submitform}>SignUp</button>
       </form>
+      <p>Already have an account? <a href="/">Log in here</a></p>
     </div>
   );
-};
+}
 
-export default Signup;
+export default SignUp;

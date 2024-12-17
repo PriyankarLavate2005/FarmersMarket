@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from '../pages/Home';
+import ForgotPassword from '../pages/ForgotPassword.js';
 import About from '../pages/About';
 import Contact from '../pages/Contact';
 import Login from '../pages/Login.js'
@@ -13,12 +14,13 @@ const AppRoutes = () => {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Login />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/Login" element={<Login/>} />
+        <Route path="/home" element={<Home/>} />
         <Route path='/cropInfo' element={<CropInfo />}/>
+        <Route path="/forgot-password" element={<ForgotPassword />} />
       </Routes>
     </Router>
   );
