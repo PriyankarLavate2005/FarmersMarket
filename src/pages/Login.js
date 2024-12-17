@@ -1,21 +1,24 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState,} from 'react';
+import { Navigate,useNavigate} from 'react-router-dom';
 import './Login.css';
 import axios from 'axios'
  
 
 function Login() {
+  const Navigate=useNavigate()
   async function Submitdata(e){
     e.preventDefault()
     try{
-      await axios.post("http://localhost:8000/signup",{
+      await axios.post("http://localhost:8500/",{
         password,phone
     }).then(res=>{
       if (res.data=='ok'){
         alert("You sucessfully Logged in")
+        Navigate('/home')
       }
-      else{
-        alert("something went wrong")
+      else if (res.data=='noaccount'){
+        alert("you dont have account")
       }
     })
     }

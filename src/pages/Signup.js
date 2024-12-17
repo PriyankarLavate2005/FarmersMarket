@@ -10,7 +10,7 @@ function SignUp(){
  async function Submitform(e){
   e.preventDefault()
   try{
-    await axios.post("http://localhost:8000/signup",{
+    await axios.post("http://localhost:8500/signup",{
       email,password,name,phone,zip
   }).then(res=>{
     if (res.data=='ok'){
