@@ -8,19 +8,23 @@ import Login from '../pages/Login.js'
 import SignUp from '../pages/Signup.js';
 import Navbar from '../components/Navbar';
 import CropInfo from '../CropInfo/CropInfo.js';
+import PrivateCompenents from '../components/Privatecomponent.js';
 
 const AppRoutes = () => {
   return (
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route element={<PrivateCompenents />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/logout" element={<h1>Logout here</h1>} />
+          <Route path='/cropInfo' element={<CropInfo />} />
+
+        </Route>
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/home" element={<Home/>} />
-        <Route path='/cropInfo' element={<CropInfo />}/>
-        <Route path="/forgot-password" element={<ForgotPassword />} />
+
       </Routes>
     </Router>
   );

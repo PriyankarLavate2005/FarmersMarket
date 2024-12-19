@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './Signup.css';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 function SignUp(){
   const [name,setname]=useState('')
@@ -7,24 +8,32 @@ function SignUp(){
   const [password,setpassword]=useState('')
   const [phone,setphone]=useState('')
   const [zip,setzip]=useState('')
- async function Submitform(e){
-  e.preventDefault()
-  try{
-    await axios.post("http://localhost:8500/signup",{
-      email,password,name,phone,zip
-  }).then(res=>{
-    if (res.data=='ok'){
-      alert("account created sucessfully ")
-    }
-    else{
-      alert("something went wrong")
-    }
+  const Navigate=useNavigate()
+ const Submitform =async (e)=>{
+  e.preventDefault();
+  let result=await fetch("http://127.0.0.1:8500/signup",{
+    method:'post',
+    body:JSON.stringify({name,email,password,phone,zip}),
+    headers:{
+      'content-type':'application/json'
+    },
   })
+  result=await result.json()
+  console.warn(result)
+  if(result){
+    localStorage.setItem('user',JSON.stringify(result))
+    Navigate('/')
   }
-  catch(e){
-    console.log(e)
+  else{
+    alert("Something went wrong")
   }
  }
+ useEffect(() => {
+  const auth = localStorage.getItem('user');
+  if (auth) {
+      Navigate('/')
+  }
+})
   return (
     <div className="signup-container">
       <h1>Create an Account</h1>
