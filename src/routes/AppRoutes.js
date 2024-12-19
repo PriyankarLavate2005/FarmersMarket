@@ -4,7 +4,7 @@ import Home from '../pages/Home';
 import ForgotPassword from '../pages/ForgotPassword.js';
 import About from '../pages/About';
 import Contact from '../pages/Contact';
-import Login from '../pages/Login.js'
+import Logout from '../pages/Logout.js';
 import SignUp from '../pages/Signup.js';
 import Navbar from '../components/Navbar';
 import CropInfo from '../CropInfo/CropInfo.js';
@@ -19,7 +19,7 @@ const AppRoutes = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/logout" element={<h1>Logout here</h1>} />
+          <Route path="/logout" element={<Logout/>} />
           <Route path='/cropInfo' element={<CropInfo />} />
 
         </Route>
