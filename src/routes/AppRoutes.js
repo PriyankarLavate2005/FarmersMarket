@@ -8,6 +8,7 @@ import Logout from '../pages/Logout.js';
 import SignUp from '../pages/Signup.js';
 import Navbar from '../components/Navbar';
 import CropInfo from '../CropInfo/CropInfo.js';
+import Login from '../pages/Login.js'
 import PrivateCompenents from '../components/Privatecomponent.js';
 
 const AppRoutes = () => {
@@ -21,10 +22,9 @@ const AppRoutes = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/logout" element={<Logout/>} />
           <Route path='/cropInfo' element={<CropInfo />} />
-
         </Route>
         <Route path="/signup" element={<SignUp />} />
-
+        <Route path='/login' element={<Login/>}/>
       </Routes>
     </Router>
   );
