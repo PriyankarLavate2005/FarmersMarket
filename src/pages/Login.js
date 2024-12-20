@@ -49,9 +49,9 @@ function Login(){
                     <label>Password</label>
                     <input type="password" name="password" onChange={(e) => { setpassword(e.target.value) }} required />
                 </div>
-                <button className="signup-button" onClick={Submitform}>SignUp</button>
+                <button className="signup-button" onClick={Submitform}>Login</button>
             </form>
-            <p>Already have an account? <a href="/">Signup  here</a></p>
+            <p>dont have Account? <a href="/">Signup  here</a></p>
         </div>
     );
 

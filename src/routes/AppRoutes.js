@@ -17,12 +17,14 @@ const AppRoutes = () => {
       <Navbar />
       <Routes>
         <Route element={<PrivateCompenents />}>
-          <Route path="/" element={<Home />} />
+          
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/logout" element={<Logout/>} />
-          <Route path='/cropInfo' element={<CropInfo />} />
+       
         </Route>
+        <Route path='/cropInfo' element={<CropInfo />} />
+        <Route path="/" element={<Home />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path='/login' element={<Login/>}/>
       </Routes>
