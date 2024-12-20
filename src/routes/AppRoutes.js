@@ -10,6 +10,7 @@ import Navbar from '../components/Navbar';
 import CropInfo from '../CropInfo/CropInfo.js';
 import Login from '../pages/Login.js'
 import PrivateCompenents from '../components/Privatecomponent.js';
+import Products from '../pages/Products.js';
 
 const AppRoutes = () => {
   return (
@@ -21,6 +22,7 @@ const AppRoutes = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/logout" element={<Logout/>} />
+         < Route path="/products" element={<Products/>} />
        
         </Route>
         <Route path='/cropInfo' element={<CropInfo />} />

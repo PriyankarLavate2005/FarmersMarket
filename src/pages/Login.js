@@ -51,7 +51,7 @@ function Login(){
                 </div>
                 <button className="signup-button" onClick={Submitform}>Login</button>
             </form>
-            <p>dont have Account? <a href="/">Signup  here</a></p>
+            <p>dont have Account? <a href="/signup">Signup  here</a></p>
         </div>
     );
 

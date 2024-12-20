@@ -1,13 +1,24 @@
 import React from 'react';
 import './Home.css';
-
+import { useNavigate } from 'react-router-dom';
 const Home = () => {
+  const Navigate=useNavigate()
+  const SHOP=()=>{
+    const auth = localStorage.getItem('user');
+    if(auth){
+     Navigate('/products')
+    }
+    else{
+      alert("create an Account")
+      Navigate('/signup')
+    }
+  }
   return (
     <div className="home">
       <header className="home-header">
         <h1>Welcome to the Farmers' Market</h1>
         <p>Your one-stop destination for fresh, organic produce</p>
-        <button className="cta-button">Shop Now</button>
+        <button className="cta-button"onClick={SHOP}>Shop Now</button>
       </header>
       <section className="home-features">
         <div className="feature">

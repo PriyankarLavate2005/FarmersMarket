@@ -9,7 +9,7 @@ function SignUp(){
   const [phone,setphone]=useState('')
   const [zip,setzip]=useState('')
   const Navigate=useNavigate()
- const Submitform =async (e)=>{
+  const Submitform =async (e)=>{
   e.preventDefault();
   let result=await fetch("http://127.0.0.1:8500/signup",{
     method:'post',
@@ -60,7 +60,7 @@ function SignUp(){
         </div>
          <button className="signup-button" onClick={Submitform}>SignUp</button>
       </form>
-      <p>Already have an account? <a href="/">Log in here</a></p>
+      <p>Already have an account? <a href="/login">Log in here</a></p>
     </div>
   );
 }
